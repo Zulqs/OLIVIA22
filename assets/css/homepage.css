@@ -28,7 +28,8 @@ html {
 }
 
 .belatek {
-    font-size: 1.5em;
+    font-size: 32px;
+    padding: 10px;
     font-weight: 700;
     color: var(--yellow);
 }
@@ -39,9 +40,9 @@ nav {
     left: 0;
     right: 0;
     z-index: 99;
-    background-color: var(--dpurple);
-    padding: 13px 25px;
-    border-bottom: 3px solid var(--cafe);
+    background-color: white;
+    padding: 20px 25px;
+    border-bottom: 3px solid white;
 }
 
 /* UNTUK NAVBAR PHONE */
@@ -67,11 +68,11 @@ nav {
     transform-origin: 0 0;
     transition: 0.4s;
   } .phone_navbar span:nth-child(1) {
-    background-color: white;
+    background-color: var(--cafe);
     opacity: 50%;
     margin-right: -15px;
   } .phone_navbar span:nth-child(2) {
-    background-color: cyan;
+    background-color: var(--yellow);
     opacity: 50%;
   } .phone_navbar.is-active span:nth-child(1) {
     transform: translateX(3.8px);
@@ -80,7 +81,7 @@ nav {
     width: 20px;
   } .phone_navbar.is-active span:nth-child(2) {
     transform: translateX(-5.2px);
-    background-color: var(--yellow);
+    background-color: var(--dpurple);
     height: 20px;
     width: 20px;
   } 
@@ -89,15 +90,15 @@ nav {
     display: none;
     margin: 0;
 } .menu a {
-  color: white;
-  margin: 0 20px;
-  font-weight: 500;
+  color: var(--dpurple);
+  margin: 0 15px;
+  font-weight: 700;
   text-decoration: none;
   transition: 0.4s;
   padding: 8px 18px;
   border-radius: 99px;
 } .menu a.is-active, .menu a:hover {
-  background-color: var(--sienna);
+  background-color: var(--yellow);
   color: var(--dpurple);
   font-weight: 800;
 } 
@@ -135,7 +136,8 @@ nav {
   font-size: 1.2em;
   text-align: justify;
   margin: 20px 100px 40px 100px;
-} .top1 a {
+} .top1 .gabung {
+  text-decoration: none;
   position: absolute;
   margin-left: 50px;
   margin-right: 50px;
@@ -146,49 +148,60 @@ nav {
   font-size: 20px;
   padding: 5px;
   color: var(--redwood);
-} .top1 a:hover {
+} .top1 .gabung:hover {
   transition: 1s;
   color: var(--cafe);
   cursor: crosshair;
 }
 
-a::before,
-a::after,
-span::before,
-span:after {
-  content: '';
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: transparent;
-  transition: 1s;
-} a::before {
-  top: -2px;
-  left: -2px;
-  border-top: 2px solid var(--redwood);
-  border-left: 2px solid var(--redwood);
-} a::after {
-  top: -2px;
-  right: -2px;
-  border-top: 2px solid var(--redwood);
-  border-right: 2px solid var(--redwood);
-} 
-
-.top1 a span::before {
-  bottom: -2px;
-  right: -2px;
-  border-bottom: 2px solid var(--redwood);
-  border-right: 2px solid var(--redwood);
-} .top1 a span::after {
-  bottom: -2px;
-  left: -2px;
-  border-bottom: 2px solid var(--redwood);
-  border-left: 2px solid var(--redwood);
+@keyframes skewer {
+  0% {
+    transform: skewY(-45deg) translateX(0);
+  }
+  100% {
+    transform: skewY(-45deg) translateX(12.5em);
+  }
 }
 
-.top1 a:hover::before, a:hover::after, a:hover span::before, a:hover span::after {
-  width: calc(1280px / 2);
-  height: calc(50px / 2);
+@media (min-width: 768px) { 
+  a::before,
+  a::after,
+  span::before,
+  span:after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: transparent;
+    transition: 1s;
+  } a::before {
+    top: -2px;
+    left: -2px;
+    border-top: 2px solid var(--redwood);
+    border-left: 2px solid var(--redwood);
+  } a::after {
+    top: -2px;
+    right: -2px;
+    border-top: 2px solid var(--redwood);
+    border-right: 2px solid var(--redwood);
+  } 
+
+  .top1 a span::before {
+    bottom: -2px;
+    right: -2px;
+    border-bottom: 2px solid var(--redwood);
+    border-right: 2px solid var(--redwood);
+  } .top1 a span::after {
+    bottom: -2px;
+    left: -2px;
+    border-bottom: 2px solid var(--redwood);
+    border-left: 2px solid var(--redwood);
+  }
+
+  .top1 a:hover::before, a:hover::after, a:hover span::before, a:hover span::after {
+    width: calc(1280px / 2);
+    height: calc(50px / 2);
+  }
 }
 
 @media (max-width: 768px) {
@@ -196,11 +209,9 @@ span:after {
     margin: 20px 13px 40px 13px;
     font-size: 15px;
   }
-  .top1 a:hover::before, a:hover::after, a:hover span::before, a:hover span::after {
-    width: calc(550px / 2);
-    height: calc(50px / 2);
-  }
-
+  .top1 #gabung  {
+    border: 2px solid var(--redwood);
+  } 
   
 }
 
@@ -209,8 +220,146 @@ span:after {
     font-size: 70px;
     font-weight: 800;
   }
-  .top1 a:hover::before, a:hover::after, a:hover span::before, a:hover span::after {
-    width: calc(300px / 2);
-    height: calc(50px / 2);
-  }
+}
+
+.modalbox {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* .regiscontent {
+  background-color: white;
+  border: 3px solid black;
+  margin: 15% auto;
+  padding: 40px 30px 50px 30px;
+  width: 380px;
+  text-align: center;
+  border-radius: 20px;
+} .regiscontent p {
+  font-weight: 800;
+  font-size: 30px;
+  color: var(--dpurple);
+}  */
+.tutup {
+  color: var(--dpurple);
+  float: right;
+  margin: 10px 15px;
+  font-size: 28px;
+  font-weight: bold;
+  transition: .20s;
+} .tutup:hover, .tutup:focus {
+  color: white;
+  text-decoration: none;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.wrapper {
+  max-width: 450px;
+  width: 100%;
+  margin: 1% auto;
+  padding: 40px 30px 50px 30px;
+}
+
+.formtop {
+  margin: -4px auto;
+  margin-bottom: 40px;
+  color: white;
+  border-bottom: var(--dpurple) 2px solid;
+  padding-bottom: 10px;
+}
+
+.containerform {
+  background: var(--yellow);
+  padding: 30px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, .2);
+  border-radius: 10px;
+}
+
+.inputform {
+  position: relative;
+}
+
+.input {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 400;
+  color: white;
+  background-color: transparent;
+  outline: 0.8px solid var(--cafe);
+  width: 70%;
+  transition: .25s;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.input-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--dpurple);
+  font-weight: 500;
+  transform: translate(10px, 8px);
+  transform-origin: left;
+  transition: transform .25s;
+}
+
+.input:focus+.input-label,
+.input:valid+.input-label {
+  transform: translate(0, -22px) scale(.8);
+  color: white;
+}
+input:is(:focus, :valid) {
+  outline-color: white;
+}
+
+.lupapass{
+  color: white;
+  font-weight: 300;
+  text-decoration: none;
+  text-align: center;
+  margin: -5px auto 10px;
+  display: block;
+}
+
+.submit {
+  margin: auto;
+} .submit button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  color: var(--dpurple);
+  background-color: white;
+  outline: none;
+  width: 100%;
+  transition: .25s;
+  margin-bottom: 10px;
+  width: 100%;
+} .submit button:hover {
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.login p {
+  color: white;
+  font-weight: 300;
+  font-size: 12px;
+  text-align: center;
+  margin: auto;
+} .login a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--dpurple);
+  transition: .25s;
+} .login a:hover {
+  font-size: 20px;
+  color: white;
 }
