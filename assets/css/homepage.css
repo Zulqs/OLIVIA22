@@ -1,0 +1,84 @@
+:root{
+    --yellow: #E3D26F;
+    --sienna: #CA895F;
+    --redwood: #A15E49;
+    --cafe: #4E3822;
+    --dpurple: #2F1B25;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+
+.navcontainer {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.belatek {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--yellow);
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    background-color: var(--dpurple);
+    padding: 13px 25px;
+    border-bottom: 3px solid var(--cafe);
+}
+
+.phone_navbar {
+    display: block;
+    position: relative;
+    z-index: 1;
+    user-select: none;
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
+
+.phone_navbar span{
+    height: 25px;
+    width: 25px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    transform-origin: 0 0;
+    transition: 0.4s;
+  } .phone_navbar span:nth-child(1) {
+    background-color: white;
+    opacity: 50%;
+    margin-right: -15px;
+  } .phone_navbar span:nth-child(2) {
+    background-color: cyan;
+    opacity: 50%;
+  } .phone_navbar:hover span:nth-child(1) {
+    transform: translateX(3.8px);
+    background-color: var(--redwood);
+    height: 20px;
+    width: 20px;
+  } .phone_navbar:hover span:nth-child(2) {
+    transform: translateX(-5.2px);
+    background-color: var(--yellow);
+    height: 20px;
+    width: 20px;
+  } 
+
+.menu {
+    display: none;
+} 
