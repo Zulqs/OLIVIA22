@@ -1,3 +1,9 @@
+*,
+html {
+    margin: 0;
+    padding: 0;
+}
+
 :root{
     --yellow: #E3D26F;
     --sienna: #CA895F;
