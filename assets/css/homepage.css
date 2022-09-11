@@ -38,22 +38,22 @@ nav {
     border-bottom: 3px solid var(--cafe);
 }
 
+/* UNTUK NAVBAR PHONE */
 .phone_navbar {
-    display: block;
-    position: relative;
-    z-index: 1;
-    user-select: none;
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
+  display: block;
+  position: relative;
+  z-index: 1;
+  user-select: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
 }
 
-.phone_navbar span{
+.phone_navbar span {
     height: 25px;
     width: 25px;
-    background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
     position: relative;
@@ -67,18 +67,40 @@ nav {
   } .phone_navbar span:nth-child(2) {
     background-color: cyan;
     opacity: 50%;
-  } .phone_navbar:hover span:nth-child(1) {
+  } .phone_navbar.is-active span:nth-child(1) {
     transform: translateX(3.8px);
     background-color: var(--redwood);
     height: 20px;
     width: 20px;
-  } .phone_navbar:hover span:nth-child(2) {
+  } .phone_navbar.is-active span:nth-child(2) {
     transform: translateX(-5.2px);
     background-color: var(--yellow);
     height: 20px;
     width: 20px;
   } 
 
-.menu {
+  .menu {
     display: none;
+    margin: 0;
+} .menu a {
+  color: white;
+  margin: 0 20px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.4s;
+  padding: 8px 18px;
+  border-radius: 99px;
+} .menu a.is-active, .menu a:hover {
+  background-color: var(--sienna);
+  color: var(--dpurple);
+  font-weight: 800;
 } 
+
+@media (min-width: 768px) {
+  .phone_navbar {
+    display: none;
+  }
+  .menu {
+    display: block;
+  }
+}
