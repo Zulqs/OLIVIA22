@@ -20,11 +20,11 @@ html {
 }
 
 .navcontainer {
-    max-width: 1280px;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: relative;
 }
 
 .belatek {
@@ -108,5 +108,109 @@ nav {
   }
   .menu {
     display: block;
+  }
+}
+
+.container {
+  margin: 10px auto;
+  max-width: 1280px;
+  align-items: center;
+  position: relative;
+}
+
+/*CONTAINER 1*/
+
+.top1 {
+  padding: 50px 25px;
+  border-radius: 0 0 10px 10px;
+} .top1 h1 {
+  color: var(--cafe);
+  font-size: 70px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+} .top1 p {
+  font-weight: 400;
+  color: black;
+  font-size: 1.2em;
+  text-align: justify;
+  margin: 20px 100px 40px 100px;
+} .top1 a {
+  position: absolute;
+  margin-left: 50px;
+  margin-right: 50px;
+  left: 0;
+  right: 0;
+  font-weight: 700;
+  text-align: center;
+  font-size: 20px;
+  padding: 5px;
+  color: var(--redwood);
+} .top1 a:hover {
+  transition: 1s;
+  color: var(--cafe);
+  cursor: crosshair;
+}
+
+a::before,
+a::after,
+span::before,
+span:after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: transparent;
+  transition: 1s;
+} a::before {
+  top: -2px;
+  left: -2px;
+  border-top: 2px solid var(--redwood);
+  border-left: 2px solid var(--redwood);
+} a::after {
+  top: -2px;
+  right: -2px;
+  border-top: 2px solid var(--redwood);
+  border-right: 2px solid var(--redwood);
+} 
+
+.top1 a span::before {
+  bottom: -2px;
+  right: -2px;
+  border-bottom: 2px solid var(--redwood);
+  border-right: 2px solid var(--redwood);
+} .top1 a span::after {
+  bottom: -2px;
+  left: -2px;
+  border-bottom: 2px solid var(--redwood);
+  border-left: 2px solid var(--redwood);
+}
+
+.top1 a:hover::before, a:hover::after, a:hover span::before, a:hover span::after {
+  width: calc(1280px / 2);
+  height: calc(50px / 2);
+}
+
+@media (max-width: 768px) {
+  .top1 p {
+    margin: 20px 13px 40px 13px;
+    font-size: 15px;
+  }
+  .top1 a:hover::before, a:hover::after, a:hover span::before, a:hover span::after {
+    width: calc(550px / 2);
+    height: calc(50px / 2);
+  }
+
+  
+}
+
+@media (max-width: 425px) {
+  .top1 h1 {
+    font-size: 70px;
+    font-weight: 800;
+  }
+  .top1 a:hover::before, a:hover::after, a:hover span::before, a:hover span::after {
+    width: calc(300px / 2);
+    height: calc(50px / 2);
   }
 }
