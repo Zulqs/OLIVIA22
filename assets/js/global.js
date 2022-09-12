@@ -23,3 +23,14 @@ window.onclick = function(event) {
         modalbox.style.display = "none";
     }
 }
+
+// $('.gabung').click(function(){
+//     var buttonId = $(this).attr('id');
+//     $('#regisbox').removeAttr('class').addClass(buttonId);
+//     $('body').addClass('modal-active');
+// })
+
+// $('#modal-container').click(function(){
+//     $(this).addClass('out');
+//     $('body').removeClass('modal-active');
+// })

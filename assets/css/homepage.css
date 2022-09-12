@@ -363,3 +363,25 @@ input:is(:focus, :valid) {
   font-size: 20px;
   color: white;
 }
+
+/* POPUP MODAL */
+
+/* END POPUP MODAL */
+
+.container.sec {
+  background-color: var(--yellow);
+  display: flex;
+  padding: 30px 25px;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+} .card {
+  border-radius: 7px;
+  padding: 15px 30px;
+  margin: 10px 25px;
+  box-shadow: 1px 1px 30px rgba(0, 0, 0, .3);
+} .card h1 {
+  text-align: center;
+  margin:15px;
+  color:var(--dpurple);
+}
