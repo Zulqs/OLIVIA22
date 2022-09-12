@@ -369,14 +369,17 @@ input:is(:focus, :valid) {
 /* END POPUP MODAL */
 
 .container.sec {
+  margin-top: 40px;
   background-color: var(--yellow);
   display: flex;
   padding: 30px 25px;
   align-items: center;
   justify-content: space-evenly;
   position: relative;
+  max-width: none;
 } .card {
   border-radius: 7px;
+  background-color: white;
   padding: 15px 30px;
   margin: 10px 25px;
   box-shadow: 1px 1px 30px rgba(0, 0, 0, .3);
@@ -384,4 +387,12 @@ input:is(:focus, :valid) {
   text-align: center;
   margin:15px;
   color:var(--dpurple);
+} .card p {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .container.sec {
+    flex-direction: column;
+  }
 }
