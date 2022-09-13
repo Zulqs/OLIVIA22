@@ -2,6 +2,7 @@
 html {
     margin: 0;
     padding: 0;
+    max-width: 100%;
 }
 
 :root{
@@ -18,6 +19,8 @@ html {
     box-sizing: border-box;
     font-family: Montserrat;
 }
+
+
 
 .navcontainer {
     margin: 0 auto;
@@ -154,15 +157,6 @@ nav {
   cursor: crosshair;
 }
 
-@keyframes skewer {
-  0% {
-    transform: skewY(-45deg) translateX(0);
-  }
-  100% {
-    transform: skewY(-45deg) translateX(12.5em);
-  }
-}
-
 @media (min-width: 768px) { 
   a::before,
   a::after,
@@ -222,34 +216,50 @@ nav {
   }
 }
 
+
+
+/* POPUP MODAL */
+
+@keyframes skewer {
+  0% {
+    transform: skewY(-45deg) translateX(0);
+  }
+  100% {
+    transform: skewY(-45deg) translateX(12.5em);
+  }
+}
+
 .modalbox {
-  display: none;
+  display: table;
   position: fixed;
   z-index: 100;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: auto;
+  transform: scale(0);
+} .modalbox.show {
+  transform: scaleY(0.01) scaleX(0);
+  animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+} .modalbox.show .modalbg .modalcontainer {
+  transform: scale(0);
+  animation: zoomIn 0.5s 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+} .modalbox.out {
+  transform: scale(1);
+  animation: unfoldOut 1s 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+} .modalbox.out .modalbg .modalcontainer {
+  animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+} .modalbox .modalbg {
+  display: table-cell;
+  backdrop-filter: blur(5px);
+  background: rgba(255,255,255,.1);
+  vertical-align: middle;
 }
 
-/* .regiscontent {
-  background-color: white;
-  border: 3px solid black;
-  margin: 15% auto;
-  padding: 40px 30px 50px 30px;
-  width: 380px;
-  text-align: center;
-  border-radius: 20px;
-} .regiscontent p {
-  font-weight: 800;
-  font-size: 30px;
-  color: var(--dpurple);
-}  */
 .tutup {
   color: var(--dpurple);
   float: right;
-  margin: 10px 15px;
+  margin: 15px 28px;
   font-size: 28px;
   font-weight: bold;
   transition: .20s;
@@ -265,13 +275,13 @@ nav {
   width: 100%;
   margin: 1% auto;
   padding: 40px 30px 50px 30px;
-}
+} 
 
 .formtop {
   margin: -4px auto;
   margin-bottom: 40px;
-  color: white;
-  border-bottom: var(--dpurple) 2px solid;
+  color: var(--dpurple);
+  border-bottom: white 2px solid;
   padding-bottom: 10px;
 }
 
@@ -282,6 +292,7 @@ nav {
   border-radius: 10px;
 }
 
+
 .inputform {
   position: relative;
 }
@@ -291,7 +302,7 @@ nav {
   border: none;
   border-radius: 4px;
   font-weight: 400;
-  color: white;
+  color: var(--dpurple);
   background-color: transparent;
   outline: 0.8px solid var(--cafe);
   width: 70%;
@@ -364,7 +375,46 @@ input:is(:focus, :valid) {
   color: white;
 }
 
-/* POPUP MODAL */
+/* MODAL ANIMATION */
+@keyframes unfoldIn {
+  0% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(1) scaleX(1);
+  }
+}
+@keyframes unfoldOut {
+  0% {
+    transform: scaleY(1) scaleX(1);
+  }
+  50% {
+    transform: scaleY(0.005) scaleX(1);
+  }
+  100% {
+    transform: scaleY(0.005) scaleX(0);
+  }
+}
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
 
 /* END POPUP MODAL */
 
@@ -376,13 +426,15 @@ input:is(:focus, :valid) {
   align-items: center;
   justify-content: space-evenly;
   position: relative;
-  max-width: none;
+  max-width: 1440px;
+  border-radius: 20px;
 } .card {
   border-radius: 7px;
   background-color: white;
   padding: 15px 30px;
   margin: 10px 25px;
   box-shadow: 1px 1px 30px rgba(0, 0, 0, .3);
+  max-width: 600px;
 } .card h1 {
   text-align: center;
   margin:15px;
