@@ -5,6 +5,10 @@ html {
     max-width: 100%;
 }
 
+.overflowhidden {
+    overflow: hidden;
+}
+
 :root{
     --yellow: #E3D26F;
     --sienna: #CA895F;
@@ -158,22 +162,22 @@ nav {
 }
 
 @media (min-width: 768px) { 
-  a::before,
-  a::after,
-  span::before,
-  span:after {
+  .top1 a::before,
+  .top1 a::after,
+  .top1 span::before,
+  .top1 span:after {
     content: '';
     position: absolute;
     width: 8px;
     height: 8px;
     background: transparent;
     transition: 1s;
-  } a::before {
+  } .top1 a::before {
     top: -2px;
     left: -2px;
     border-top: 2px solid var(--redwood);
     border-left: 2px solid var(--redwood);
-  } a::after {
+  } .top1 a::after {
     top: -2px;
     right: -2px;
     border-top: 2px solid var(--redwood);
@@ -239,6 +243,7 @@ nav {
   height: 100%;
   transform: scale(0);
 } .modalbox.show {
+  transform: scale(1);
   transform: scaleY(0.01) scaleX(0);
   animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 } .modalbox.show .modalbg .modalcontainer {
@@ -251,7 +256,7 @@ nav {
   animation: zoomOut 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 } .modalbox .modalbg {
   display: table-cell;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(2px);
   background: rgba(255,255,255,.1);
   vertical-align: middle;
 }
@@ -281,8 +286,12 @@ nav {
   margin: -4px auto;
   margin-bottom: 40px;
   color: var(--dpurple);
-  border-bottom: white 2px solid;
+  border-bottom: black 2px solid;
   padding-bottom: 10px;
+} .formtop h2 {
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
 }
 
 .containerform {
@@ -301,13 +310,13 @@ nav {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  font-weight: 400;
-  color: var(--dpurple);
+  font-weight: 500;
+  color: black;
   background-color: transparent;
-  outline: 0.8px solid var(--cafe);
+  outline: 1.3px solid var(--cafe);
   width: 70%;
   transition: .25s;
-  margin-bottom: 30px;
+  margin-bottom: 37px;
   width: 100%;
 }
 
@@ -325,11 +334,13 @@ nav {
 .input:focus+.input-label,
 .input:valid+.input-label {
   transform: translate(0, -22px) scale(.8);
-  color: white;
+  color: black;
+  font-size: 17px;
 }
 input:is(:focus, :valid) {
-  outline-color: white;
-}
+  outline-color: var(--yellow);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .3);
+} 
 
 .lupapass{
   color: white;
