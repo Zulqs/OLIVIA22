@@ -257,6 +257,7 @@ nav {
 } .modalbox .modalbg {
   display: table-cell;
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
   background: rgba(255,255,255,.1);
   vertical-align: middle;
 }
